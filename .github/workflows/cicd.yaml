@@ -21,6 +21,9 @@ jobs:
         path: /usr/local/bin/aws
         key: ${{ runner.os }}-aws
 
+    - name: path
+      run: export PATH="$PATH:~/.local/bin"
+
     - name: install
       run: bash scripts/install.sh
 
