@@ -21,14 +21,11 @@ jobs:
         path: /usr/local/bin/aws
         key: ${{ runner.os }}-aws
 
-    - name: path
-      run: export PATH="$PATH:~/.local/bin"
-
     - name: install
       run: bash scripts/install.sh
 
     - name: build
-      run: milkshake-cli sitemap.yaml -c
+      run: ~/.local/bin/milkshake-cli sitemap.yaml -c
 
     - name: release
       env:
