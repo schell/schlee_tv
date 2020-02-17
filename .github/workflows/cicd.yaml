@@ -1,0 +1,32 @@
+name: cicd
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    # cacheing
+    - name: Cache ~/.local/bin
+      uses: actions/cache@v1
+      with:
+        path: ~/.local/bin/
+        key: ${{ runner.os }}-local-bin
+
+    - name: install terraform
+      run: scripts/install_terraform.sh
+
+    - name: install milkshake
+      run: scripts/install_milkshake.sh
+
+    #- name: release
+    #  if: github.ref == 'refs/heads/release'
+    #  env:
+    #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #    AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    #  run: scripts/release.sh
