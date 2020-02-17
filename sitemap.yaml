@@ -1,0 +1,9 @@
+dirName: build
+dirSubdirs:
+# ALL LOCAL CONTENT
+- dirCopiedFrom: site
+  dirOpMap:
+  - operationExtFrom: md
+    operationExtTo: html
+    operationPageOp: PageOpPandoc
+  dirExcludes: [.DS_Store]

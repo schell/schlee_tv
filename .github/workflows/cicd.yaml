@@ -17,11 +17,15 @@ jobs:
         path: ~/.local/bin/
         key: ${{ runner.os }}-local-bin
 
-    - name: install terraform
-      run: scripts/install_terraform.sh
+    - name: install
+      run: |
+        mkdir -p ~/.local/bin
+        bash scripts/install_terraform.sh
+        bash scripts/install_milkshake.sh
 
-    - name: install milkshake
-      run: scripts/install_milkshake.sh
+    - name: build
+      run: |
+        milkshake-cli sitemap.yaml -c
 
     #- name: release
     #  if: github.ref == 'refs/heads/release'
