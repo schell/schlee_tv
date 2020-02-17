@@ -19,7 +19,7 @@ if hash terraform 2>/dev/null; then
 else
     VER="0.12.20"
     PKG="terraform_${VER}_linux_amd64"
-    DIR="/usr/local/bin"
+    DIR="~/.local/bin"
     PREV=`pwd`
 
     mkdir -p install-terraform

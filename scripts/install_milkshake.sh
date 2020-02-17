@@ -9,5 +9,5 @@ else
     tar xvfz milkshake-cli.tar.gz
     mv milkshake-cli ~/.local/bin
     echo "Installed milkshake into:"
-    which milkshake
+    which milkshake-cli
 fi

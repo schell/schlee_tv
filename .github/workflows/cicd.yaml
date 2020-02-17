@@ -17,11 +17,18 @@ jobs:
         path: ~/.local/bin/
         key: ${{ runner.os }}-local-bin
 
+    - name: Cache /usr/local/bin/aws
+      uses: actions/cache@v1
+      with:
+        path: /usr/local/bin/aws
+        key: ${{ runner.os }}-aws
+
     - name: install
       run: |
         mkdir -p ~/.local/bin
         bash scripts/install_terraform.sh
         bash scripts/install_milkshake.sh
+        bash scripts/install_aws.sh
 
     - name: build
       run: |
