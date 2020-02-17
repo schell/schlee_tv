@@ -25,10 +25,14 @@ jobs:
 
     - name: install
       run: |
-        mkdir -p ~/.local/bin
+        mkdir -p $HOME/.local/bin
+        export PATH=$PATH:$HOME/.local/bin
         bash scripts/install_terraform.sh
+        sleep 1
         bash scripts/install_milkshake.sh
+        sleep 1
         bash scripts/install_aws.sh
+        sleep 1
 
     - name: build
       run: |
