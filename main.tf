@@ -54,6 +54,11 @@ resource "aws_s3_bucket" "schlee_tv_bucket" {
     index_document = "index.html"
     error_document = "404.html"
   }
+
+  provisioner "local-exec" {
+    when = destroy
+    command = "aws s3 rm s3://${self.id}/ --recursive"
+  }
 }
 
 
@@ -68,14 +73,5 @@ resource "null_resource" "aws_sync" {
 
   triggers = {
     always_run = timestamp()
-  }
-}
-
-
-// s3 site teardown
-resource "null_resource" "aws_teardown" {
-  provisioner "local-exec" {
-    when = "destroy"
-    command = "aws s3 rm s3://${local.domain_name}/ --recursive"
   }
 }
