@@ -10,7 +10,7 @@ terraform {
 // variables
 locals {
   is_master = terraform.workspace == "master"
-  //domain_name = terraform.workspace == "master" ? "schlee.tv" : "${terraform.workspace}.schlee.tv"
+  domain_name = terraform.workspace == "master" ? "schlee.tv" : "${terraform.workspace}.schlee.tv"
 }
 
 
@@ -40,13 +40,13 @@ provider "aws" {
 
 // origin id & cloudfront
 resource "aws_cloudfront_origin_access_identity" "origin_identity" {
-  comment = "identity for schlee.tv access origin"
+  comment = "identity for ${local.domain_name} access origin"
 }
 
 
 // s3
 resource "aws_s3_bucket" "schlee_tv_bucket" {
-  bucket = "schlee.tv"
+  bucket = local.domain_name
   acl = "private"
 
   policy = <<POLICY
@@ -61,7 +61,7 @@ resource "aws_s3_bucket" "schlee_tv_bucket" {
                 "AWS": "${aws_cloudfront_origin_access_identity.origin_identity.iam_arn}"
             },
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::schlee.tv/*"
+            "Resource": "arn:aws:s3:::${local.domain_name}/*"
         }
     ]
 }
@@ -77,7 +77,7 @@ POLICY
 // s3 site sync
 resource "null_resource" "aws_sync" {
   provisioner "local-exec" {
-    command = "aws s3 sync build/site s3://schlee.tv/"
+    command = "aws s3 sync build/site s3://${local.domain_name}/"
   }
 
   triggers = {
@@ -98,9 +98,10 @@ data "aws_route53_zone" "zone" {
 resource "aws_acm_certificate" "cert" {
   provider = aws.virginia
   validation_method = "DNS"
-  domain_name = "schlee.tv"
+  domain_name = local.domain_name
   tags = {
     Name = "schlee_tv_cert"
+    Domain = local.domain_name
   }
   lifecycle {
     create_before_destroy = true
@@ -142,11 +143,9 @@ resource "aws_cloudfront_distribution" "distribution" {
   }
   enabled = true
   is_ipv6_enabled = true
-  comment = "schlee.tv cloudfront"
+  comment = "${local.domain_name} cloudfront"
   default_root_object = "index.html"
-  aliases = [
-    "schlee.tv"
-  ]
+  aliases = [local.domain_name]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
