@@ -17,9 +17,9 @@ if hash terraform 2>/dev/null; then
     echo "Terraform is already installed at:"
     which terraform
 else
-    VER="0.12.20"
+    VER="0.12.21"
     PKG="terraform_${VER}_linux_amd64"
-    DIR="~/.local/bin"
+    DIR="$HOME/.local/bin"
     PREV=`pwd`
 
     mkdir -p install-terraform
