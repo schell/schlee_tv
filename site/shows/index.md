@@ -2,4 +2,5 @@
 title: shows
 theme: templates/content.html
 ---
-* April 21st - [The Star, Sebastopol](https://www.starsebastopol.com/live-shows) w/ TV Heads, THAT, Eagle Wolf Snake
+* March 10th - House Show w/ Johanna Warren(solo)
+* April 11th - Whiskey Tip w/ Tony Hannah
