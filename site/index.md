@@ -1,4 +1,4 @@
 ---
-title: ashley allred
+title: schlee
 theme: templates/splash.html
 ---
