@@ -1,6 +1,8 @@
 # schlee_tv
 schlee.tv
 
+- [deployment status](https://github.com/schell/schlee_tv/actions)
+
 ## learnings
 * in order for the rout53 alias record to be pointed at the cloudfront url, the
   cloudfront distribution must have the domain name listed in its aliases, eg.
