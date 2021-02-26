@@ -6,11 +6,11 @@ workspace=$1
 #terraform workspace select $workspace || terraform workspace new $workspace
 #terraform apply --auto-approve
 
-if [$workspace == "master"]
-then 
-    domain_name="schlee.tv" 
-else 
-    domain_name="${workspace}.schlee.tv" 
+if [ "${workspace}" == "master" ]
+then
+    domain_name="schlee.tv"
+else
+    domain_name="${workspace}.schlee.tv"
 fi
 
 echo "Deploying to ${domain_name}"
