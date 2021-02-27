@@ -4,10 +4,7 @@ Welcome to your site. Below are some notes on how to use this tool.
 ## editing your site
 Here is a video showing the steps to edit the "news" page of your site:
 
-<video width="320" height="240" controls>
-  <source src="help/editing.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![editing your site](help/editing.gif)
 
 ### explainer
 
