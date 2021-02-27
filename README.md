@@ -1,59 +1,33 @@
 # schlee_tv
-schlee.tv
+Welcome to your site. Below are some notes on how to use this tool.
 
-- [deployment status](https://github.com/schell/schlee_tv/actions)
+## editing your site
+Here is a video showing the steps to edit the "news" page of your site:
 
-## learnings
-* in order for the rout53 alias record to be pointed at the cloudfront url, the
-  cloudfront distribution must have the domain name listed in its aliases, eg.
-  ```terraform
-  resource "aws_cloudfront_distribution" "distribution" {
-    ...
-    aliases = [
-      "schlee.tv"
-    ]
-    ...
-  ```
-* in order for cloudfront to be able to read from the s3 bucket we must first
-  create a cloudfront access origin id and then place a policy on the bucket that
-  allows the origin id to read the bucket's objects:
-  ```terraform
-  resource "aws_cloudfront_origin_access_identity" "origin_identity" {
-    comment = "identity for schlee.tv access origin"
-  }
+<video width="320" height="240" controls>
+  <source src="help/editing.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-  resource "aws_s3_bucket" "schlee_tv_bucket" {
-    bucket = "schlee.tv"
-    acl = "private"
+### explainer
 
-    policy = <<POLICY
-  {
-      "Version": "2008-10-17",
-      "Id": "PolicyForCloudFrontPrivateContent",
-      "Statement": [
-          {
-              "Sid": "1",
-              "Effect": "Allow",
-              "Principal": {
-                  "AWS": "${aws_cloudfront_origin_access_identity.origin_identity.iam_arn}"
-              },
-              "Action": "s3:GetObject",
-              "Resource": "arn:aws:s3:::schlee.tv/*"
-          }
-      ]
-  }
-  POLICY
-  }
-  ```
-  ...and then set this as the aws_cloudfront_distribution.s3_origin_config.origin_access_identity:
-  ```terraform
-  resource "aws_cloudfront_distribution" "distribution" {
-    origin {
-      ...
-      s3_origin_config {
-        origin_access_identity = aws_cloudfront_origin_access_identity.origin_identity.cloudfront_access_identity_path
-      }
-    }
-    ...
-  }
-  ```
+Your site is made up of a number of pages each of which are contained in the
+[site](https://github.com/schell/schlee_tv/tree/master/site) folder. To edit
+one of these pages, find the you are looking for, click on it to show the
+preview, then click the "pencil" icon to edit the page.
+
+Once you are editing you can use
+[markdown](https://guides.github.com/features/mastering-markdown/)
+to format your pages.
+
+When you are done making changes, scroll down to the bottom and click the "commit"
+button. This will automatically deploy your changes to your site. You can then
+click the
+["actions" tab at the top of the page to check the status of the deployment](https://github.com/schell/schlee_tv/actions).
+
+Once the deployment has finished successfully you should be able to view your changes
+on your site.
+
+## helpful links
+- [check deployment status](https://github.com/schell/schlee_tv/actions)
+- [how to use markdown](https://guides.github.com/features/mastering-markdown/#examples)
