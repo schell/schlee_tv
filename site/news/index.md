@@ -2,6 +2,8 @@
 title: news
 theme: templates/content.html
 ---
+I am writing some news. These things are new.
+
 New Album Tears is almost done! Produced & Recorded  by John Courage at Gremlintone, Partially Recorded, mixed and mastered by Stuart Markham at White Whale.
 
 Tears is compiled of 12 songs which will slowly be released over the next year in 2020 with accompanying music videos for each song.
