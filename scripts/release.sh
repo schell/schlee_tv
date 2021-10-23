@@ -15,4 +15,4 @@ fi
 
 echo "Deploying to ${domain_name}"
 
-aws s3 sync build/site "s3://${domain_name}/"
+aws s3 sync build/site "s3://${domain_name}/" --region us-west-2
