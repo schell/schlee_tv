@@ -2,10 +2,12 @@
 title: news
 theme: templates/content.html
 ---
-I am writing some news. These things are new.
+It’s October 2021!  Busy month and time to set intentions for all the magic we want to create this Fall & Winter! 
 
-New Album Tears is almost done! Produced & Recorded  by John Courage at Gremlintone, Partially Recorded, mixed and mastered by Stuart Markham at White Whale.
+To kick of the month I will be art directing two music videos for other artists.  One video in which I am fully directing, filming, editing and producing and one in which I am writing the screenplay, set designing, co producing and art directing. 
 
-Tears is compiled of 12 songs which will slowly be released over the next year in 2020 with accompanying music videos for each song.
+In the middle of the month I will be playing a show accompanied by John Courage at Shady Oak in Santa Rosa, California.  Looking forward to playing some BRAND NEW songs for ya! 
 
-This album features dreamy textures and a natural compelling dynamic and emotional arc, with also 80’s pop influence and dark electro undertones. The vehicles are compelling melodies and lush textures, but the contents are pure feeling and optimism.
+I am also very much looking forward to performing as Blondie for The 6th Annual Halloween Covers Show at the Phoenix Theater on October 29th!  I have been working hard learning this set backwards and forwards to really have it dimed by curtain call! I will have an amazing band backing me up…..Josh Staples from The New Trust on bass guitar and backing vocals, Paul Haile & Navid Manoochehri from Trebuchet on drums and keys, and Alexander Leach from Kingsbough on lead guitar! 
+
+I am excited for what’s to come and look forward to seeing you at these shows! Follow me on Instagram for more! [@schlee_official](https://www.instagram.com/schlee_official/)
